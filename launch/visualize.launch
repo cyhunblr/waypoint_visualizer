@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node name="waypoint_visualizer" pkg="waypoint_visualizer" type="waypoint_visualizer.py" respawn="true" respawn_delay="10">
+
+        <param name="package_name" type="str" value="waypoint_visualizer" />
+        <param name="file_name" type="str" value="waypoints.csv" />
+
+        <param name="frame_id" type="str" value="map" />
+
+        <!-- http://docs.ros.org/en/noetic/api/visualization_msgs/html/msg/Marker.html -->
+
+        <param name="scale_x" type="double" value="0.3" />
+        <param name="scale_y" type="double" value="0.3" />
+        <param name="scale_z" type="double" value="0.3" />
+        <param name="color_r" type="double" value="1.0" />
+        <param name="color_g" type="double" value="0.0" />
+        <param name="color_b" type="double" value="0.0" />
+
+    </node>
+
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find waypoint_visualizer)/rviz/visualize.rviz" />
+
+</launch>
